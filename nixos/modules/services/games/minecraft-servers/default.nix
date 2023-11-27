@@ -190,7 +190,6 @@ in {
       group = mkInstanceName name;
       home = "/var/lib/${mkInstanceName name}";
       openssh.authorizedKeys.keys =
-        optionals (icfg.rsyncSSHKeys != [])
         map
         (x: rsyncCmd + " " + x)
         icfg.rsyncSSHKeys;
